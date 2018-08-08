@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+body{
+	margin: 0;
+}
+#dataOutput{
+	border: 1px solid black;
+}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script type="text/javascript" >
+
+$(document).ready( startApp );
+
+function startApp(){
+	getDataFromServer();
+}
+
+function getDataFromServer(){
+	const options = {
+		url: 'getdata.php',
+		data: {
+
+		},
+		dataType: 'json',
+		success: function(response){
+			console.log('got data', response);
+		},
+		error: function(){
+			console.log('things went wrong')
+		}
+	}
+	$.ajax( options );
+}
+
+
+	</script>
+</head>
+<body>
+<div id="dataOutput">No data available</div>
+</body>
+</html>
